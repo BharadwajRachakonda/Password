@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rand Password</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column; /* Change to column to stack elements vertically */
+        }
+
+        #pass {
+            margin-top: 20px;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            font-size: 18px;
+            text-align: center;
+            max-width: 80%;
+        }
+
+        input[type="number"] {
+            padding: 5px;
+            font-size: 16px;
+            margin-bottom: 10px; /* Add margin bottom to create space between elements */
+        }
+
+        button {
+            padding: 8px 16px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px; /* Add margin bottom to create space between elements */
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <label for="b">Enter password length:</label>
+    <input type="number" id="b">
+    <button onclick="mypass()">Generate Password</button>
+    <div id="pass">Generated Password will appear here.</div>
+    <script>
+        function mypass(){
+            document.getElementById("pass").innerHTML='';
+            x="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+{}[]|:;<>,.?/~";
+            l=Number(document.getElementById("b").value);
+            console.log(l)
+            for(let i=0; i<l;i++){
+                document.getElementById("pass").innerHTML=document.getElementById("pass").innerHTML+x[Math.floor(Math.random()*x.length)];
+            }
+            console.log(document.getElementById("pass").innerHTML)
+        }
+    </script>
+</body>
+</html>
